@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Vues;
-
+//imports à faire
 import Metier.Projection;
 import Modele.ProjectionDAO;
 import java.io.IOException;
@@ -20,17 +20,17 @@ import javax.swing.JOptionPane;
  */
 public class SuppressionProjection extends javax.swing.JFrame {
 
-    private final String date;
+    private final String date;//date cliquée par l'utilisateur
 
     /**
      * Creates new form SuppressionProjection
      */
     public SuppressionProjection(String date) throws IOException, ClassNotFoundException, SQLException {
-        initComponents();
-        setTitle("Supprimer la projection");
+        initComponents();//initialisation de la fenêtre
+        setTitle("Supprimer la projection");//titre
         this.date = date;
         ProjectionDAO d = new ProjectionDAO();
-        ArrayList<Projection> ap = d.getObjetsProjection(date);
+        ArrayList<Projection> ap = d.getObjetsProjection(date);//récupération des projections dans une liste
         System.out.println(ap);
         for (int i = 0; i < ap.size(); i++) {//affichage de la liste des projections avec les attributs
             jComboBox1.addItem(ap.get(i).getNomProj());   
@@ -109,11 +109,11 @@ public class SuppressionProjection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ProjectionDAO pr = new ProjectionDAO();
+        ProjectionDAO pr = new ProjectionDAO();//objet ProjectionDAO
         String choix_p = (String) jComboBox1.getSelectedItem();//recuperation de la projection à supprimer
         int c =0;
         try {
-            c = pr.supprimerProjection(choix_p, date);
+            c = pr.supprimerProjection(choix_p, date);//méthode pour supprimer une projection
         } catch (IOException ex) {
             Logger.getLogger(SuppressionProjection.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -121,7 +121,7 @@ public class SuppressionProjection extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(SuppressionProjection.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if (c == 1) {
+        if (c == 1) {//si suppression effectuée, confirmation
             JOptionPane j1 = new JOptionPane();
             j1.showMessageDialog(null, "Suppression effectuée", "Information", JOptionPane.INFORMATION_MESSAGE);
             setVisible(false);
@@ -165,7 +165,7 @@ public class SuppressionProjection extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new SuppressionProjection(null).setVisible(true);
+                    new SuppressionProjection(null).setVisible(true);//lancement fenêtre
                 } catch (IOException ex) {
                     Logger.getLogger(SuppressionProjection.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ClassNotFoundException ex) {

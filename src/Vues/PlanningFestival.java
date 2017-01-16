@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Vues;
-
+//imports à faire
 import Metier.Film;
 import Modele.DataSourceDAO;
 import Modele.FilmDAO;
@@ -38,10 +38,10 @@ public class PlanningFestival extends javax.swing.JFrame {
      * fenetre principale
      */
     public PlanningFestival() {
-        initComponents();
-        setTitle("Planning du festival");
-        JDayChooser dayChooser = jCalendar1.getDayChooser();
-        dayChooser.addPropertyChangeListener("day", new PropertyChangeListener() {
+        initComponents();//initialiser la fenêtre
+        setTitle("Planning du festival");//titre
+        JDayChooser dayChooser = jCalendar1.getDayChooser();//récupérer le JDayChooser du JCalendar
+        dayChooser.addPropertyChangeListener("day", new PropertyChangeListener() {//ajout d'un listener sur le JDayChooser
             @Override
             public void propertyChange(PropertyChangeEvent evt){
                 // si clic sur le jour du calendrier
@@ -54,7 +54,7 @@ public class PlanningFestival extends javax.swing.JFrame {
                                 JOptionPane.QUESTION_MESSAGE,
                                 null,
                                 colonne,
-                                colonne[2]);
+                                colonne[2]);//fenêtre qui indique les possibilités
                         java.util.Date date = jCalendar1.getDate();//recuperation de la date cliquée
                         java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//formatage de la date
                         String date1 = sdf.format(date);//recupération de la date formatée

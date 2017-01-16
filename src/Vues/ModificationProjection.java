@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Vues;
-
+//imports à faire
 import Metier.Film;
 import Metier.Projection;
 import Modele.FilmDAO;
@@ -27,15 +27,15 @@ import javax.swing.SpinnerDateModel;
  */
 public class ModificationProjection extends javax.swing.JFrame {
 
-    private final String date;
-    JSpinner.DateEditor de;
+    private final String date;//date cliquée par l'utilisateur
+    JSpinner.DateEditor de;//éditeur de dates
     JSpinner.DateEditor de1;
     /**
      * Creates new form ModificationProjection
      */
     public ModificationProjection(String date) throws IOException, ClassNotFoundException, SQLException {
         initComponents();
-        setTitle("Modifier la projection");//
+        setTitle("Modifier la projection");//titre
         this.date = date;
         ProjectionDAO fd = new ProjectionDAO();
         FilmDAO fd1 = new FilmDAO();
@@ -58,7 +58,7 @@ public class ModificationProjection extends javax.swing.JFrame {
         jSpinner1.setEditor(de);//affecter l'éditeur au jspinner
         Date jdate1 = new Date();
         SpinnerDateModel sm1 = new SpinnerDateModel(jdate, null, null, Calendar.HOUR_OF_DAY);
-        jSpinner2.setModel(sm1);
+        jSpinner2.setModel(sm1);//attribuer le modèle au JSpinner
         de1 = new JSpinner.DateEditor(jSpinner2, "HH:mm");
         de1.getTextField().setEditable(false);
         jSpinner2.setEditor(de1);
@@ -184,14 +184,14 @@ public class ModificationProjection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ProjectionDAO pr = new ProjectionDAO();
+        ProjectionDAO pr = new ProjectionDAO();//objet ProjectionDAO
         //recuperation des données saisies
         String proj = (String) jComboBox1.getSelectedItem();
         String salle = (String) jComboBox2.getSelectedItem();
         Date date = jDateChooser1.getDate();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date2 = sdf.format(date);//formatage de la date
-        String hd = de.getFormat().format(jSpinner1.getValue());
+        String hd = de.getFormat().format(jSpinner1.getValue());//recupérer l'heure formatée
         String hf = de1.getFormat().format(jSpinner2.getValue());
         String film = (String) jComboBox3.getSelectedItem();
         int e = 0;
@@ -204,7 +204,7 @@ public class ModificationProjection extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ModificationProjection.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(e > 0){
+        if(e > 0){//si modification ok alors afficher la modification s'est effectuée correctement
             JOptionPane jop = new JOptionPane();
             jop.showMessageDialog(null,"Modification effectuée","info",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -241,7 +241,7 @@ public class ModificationProjection extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new ModificationProjection(null).setVisible(true);
+                    new ModificationProjection(null).setVisible(true);//lancement de la fenêtre
                 } catch (IOException ex) {
                     Logger.getLogger(ModificationProjection.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ClassNotFoundException ex) {

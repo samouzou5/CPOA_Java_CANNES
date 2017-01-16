@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Vues;
-
+//imports à faire
 import Metier.Film;
 import Modele.FilmDAO;
 import Modele.ProjectionDAO;
@@ -30,11 +30,15 @@ import java.util.TimeZone;
 public class AjoutProjection extends javax.swing.JFrame {
 
     private final String date;
-    JSpinner.DateEditor de;
+    JSpinner.DateEditor de;//éditeur de date
     JSpinner.DateEditor de1;
 
     /**
      * Creates new form AjoutProjection
+     */
+    /**
+     * 
+     * @param date //date cliquée par l'utilisateur
      */
     public AjoutProjection(String date) {
         initComponents();
@@ -43,7 +47,7 @@ public class AjoutProjection extends javax.swing.JFrame {
         FilmDAO fd1 = new FilmDAO();
         //Initialisation de la liste des films
         ArrayList<Film> f1 = fd1.getObjetsFilm();
-        for (int i = 0; i < f1.size(); i++) {
+        for (int i = 0; i < f1.size(); i++) {//initialisation de la combobox contenant des films
             jComboBox2.addItem(f1.get(i).getNomFilm());
         }
         //Initialisation des champs pour saisir les heures
@@ -56,7 +60,7 @@ public class AjoutProjection extends javax.swing.JFrame {
         Date jdate1 = new Date();
         SpinnerDateModel sm1 = new SpinnerDateModel(jdate, null, null, Calendar.HOUR_OF_DAY);
         jSpinner2.setModel(sm1);
-        de1 = new JSpinner.DateEditor(jSpinner2, "HH:mm");
+        de1 = new JSpinner.DateEditor(jSpinner2, "HH:mm");//format de l'heure
         de1.getTextField().setEditable(false);
         jSpinner2.setEditor(de1);
 
@@ -208,7 +212,7 @@ public class AjoutProjection extends javax.swing.JFrame {
         boolean dispo1 = true, dispo2 = true;
         try {
             dispo1 = fd.dispoProjectionHeureDebut(hd,nom, this.date); //vérification de la dispo pour placer la projection
-            dispo2 = fd.dispoProjectionHeureFin(hf,nom, this.date);
+            dispo2 = fd.dispoProjectionHeureFin(hf,nom, this.date);//vérification pour la dispo avec heurefin
         } catch (IOException ex) {
             Logger.getLogger(AjoutProjection.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -216,7 +220,7 @@ public class AjoutProjection extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(AjoutProjection.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if (dispo1 == false || dispo2 == false) {
+        if (dispo1 == false || dispo2 == false) {//si plage indisponible
             JOptionPane jop3 = new JOptionPane();
             jop3.showMessageDialog(null, "Erreur. La plage sélectionnée est indisponible", "Message d'erreur", JOptionPane.ERROR_MESSAGE);
             setVisible(false);
@@ -281,7 +285,7 @@ public class AjoutProjection extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AjoutProjection(null).setVisible(true);
+                new AjoutProjection(null).setVisible(true);//lancer la fenêtre AjoutProjection
             }
         });
     }

@@ -18,20 +18,20 @@ import javax.sql.DataSource;
 public class ProjectionDAO {
 
     private static DataSourceDAO ds;
-    public ArrayList<Projection> listeProjection = new ArrayList<Projection>();
-
+    public ArrayList<Projection> listeProjection = new ArrayList<Projection>();//liste des projections
+    //getObjetsProjection permet de récupérer toutes les projections de la base de données pour une date donnée
     public ArrayList<Projection> getObjetsProjection(String date) throws IOException, ClassNotFoundException, SQLException {//recupère un ensemble de projections pour une date donnéee
         Connection connexionBD = null;
         ResultSet rset = null, rset1 = null, rset2 = null;
-        Statement stmt = null;
+        Statement stmt = null;//nouveau statement
         PreparedStatement pst = null, pst1 = null, pst2 = null;
         connexionBD = ds.getConnection("connexion.properties");
         try {
             stmt = connexionBD.createStatement();
-            pst = connexionBD.prepareStatement("select * from Projection where dateProjection = ?");
+            pst = connexionBD.prepareStatement("select * from Projection where dateProjection = ?");//requête
             pst.setString(1, date);
             rset = pst.executeQuery();
-            while (rset.next()) {
+            while (rset.next()) {//parcours du curseur
                 pst1 = connexionBD.prepareStatement("select nomSalle from Salle where idSalle = ? ");
                 pst1.setInt(1, rset.getInt(2));
                 rset1 = pst1.executeQuery();
@@ -51,7 +51,7 @@ public class ProjectionDAO {
         }
         return listeProjection;//liste contenant toutes les projections
     }
-
+    //supprimerProjection supprimer une projection
     public int supprimerProjection(String nom_p, String date) throws IOException, ClassNotFoundException, SQLException {// permet de supprimer une projection
         Connection connexionBD = null;
         ResultSet rset = null;
@@ -62,9 +62,10 @@ public class ProjectionDAO {
             stmt = connexionBD.createStatement();
             //requête paramètrée pour la suppression
             PreparedStatement st = connexionBD.prepareStatement("DELETE FROM Projection WHERE nomProjection = ? and dateProjection = ?");
+            //saisie des paramètres
             st.setString(1, nom_p);
             st.setString(2, date);
-            q = st.executeUpdate();
+            q = st.executeUpdate();//exécution de la requête
         } catch (Exception e) {
             System.err.println("Problème: " + e.getMessage());
         }
@@ -104,7 +105,7 @@ public class ProjectionDAO {
         return e;
     }
 
-    //dispoProjectionHeureDebut vérifie si une projection peut être placée ou non
+    //dispoProjectionHeureDebut vérifie si une projection peut être placée ou non pour l'heure de début entrée
     public boolean dispoProjectionHeureDebut(String hd, String salle, String date) throws IOException, ClassNotFoundException, SQLException {
         Connection connexionBD = null;
         ResultSet rset = null, rset1 = null;
@@ -140,6 +141,7 @@ public class ProjectionDAO {
         }
         return dispo;
     }
+    //pareil que dispoPorjectionHeureDébut mais avec l'heure fin
     public boolean dispoProjectionHeureFin(String hf, String salle, String date) throws IOException, ClassNotFoundException, SQLException {
         Connection connexionBD = null;
         ResultSet rset = null, rset1 = null;
@@ -151,19 +153,20 @@ public class ProjectionDAO {
         try {
             stmt = connexionBD.createStatement();
             PreparedStatement pst1 = connexionBD.prepareStatement("SELECT idSalle as sal from Salle where nomSalle=?");
-            pst1.setString(1, salle);
+            pst1.setString(1, salle);//parametre pour la requete pst1
             rset = pst1.executeQuery();
             while (rset.next()) {
-                s1 = rset.getInt("sal");
+                s1 = rset.getInt("sal");//récupérer l'id de la salle
             }
             ps2 = connexionBD.prepareStatement("SELECT * from Projection where CAST(heureDebut as time) <= ? and CAST(heureFin as time) >= ?"
-                    + "and dateProjection = ? and idSalle = ?");
+                    + "and dateProjection = ? and idSalle = ?");//requête de vérification
+            //paramètres de la requête ps2
             ps2.setString(1, hf);
             ps2.setString(2, hf);
             ps2.setString(3, date);
             ps2.setInt(4, s1);
             rset1 = ps2.executeQuery();
-            while(rset1.next()){
+            while(rset1.next()){//curseur pour récupérer le row count dans s2
                 s2 = rset1.getInt(1);
             }
 
@@ -189,13 +192,14 @@ public class ProjectionDAO {
         try {
             connexionBD = ds.getConnection("connexion.properties");
             stmt = connexionBD.createStatement();
+            //récupérer idFilm et exécution de la requête pst
             PreparedStatement pst = connexionBD.prepareStatement("SELECT idFilm as f from Film where nomFilm=?");
             pst.setString(1, film);
             rset = pst.executeQuery();
-            while (rset.next()) {
+            while (rset.next()) {//parcours curseur
                 s = rset.getInt("f");
             }
-            System.out.println(s);
+            //récupérer idSalle et exécution de la requête pst1
             PreparedStatement pst1 = connexionBD.prepareStatement("SELECT idSalle as sal from Salle where nomSalle=?");
             pst1.setString(1, salle);
             rset = pst1.executeQuery();
@@ -205,13 +209,14 @@ public class ProjectionDAO {
             String req = "INSERT INTO Projection (idFilm,idSalle,nomProjection,dateProjection,heureDebut,heureFin) VALUES"
                     + "(?,?,?,?,?,?)";
             PreparedStatement pst2 = connexionBD.prepareStatement(req);
+            //saisie des paramètres
             pst2.setInt(1, s);
             pst2.setInt(2, s1);
             pst2.setString(3, nom_p);
             pst2.setString(4, date);
             pst2.setString(5, hd);
             pst2.setString(6, hf);
-            b1 = pst2.executeUpdate();
+            b1 = pst2.executeUpdate();//exécution de l'insertion
         } catch (Exception e) {
             System.err.println("Problème: " + e.getMessage());
         }

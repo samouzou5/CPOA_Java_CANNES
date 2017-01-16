@@ -20,8 +20,13 @@ public class Planning {
    private ArrayList<Projection> lp;
    
    private static int id;
-   
-   public Planning(String nom, Date deb, Date fin){
+   /**
+    * 
+    * @param nom//nom du planning
+    * @param deb//date de début du planning
+    * @param fin //date de fin planning
+    */
+   public Planning(String nom, Date deb, Date fin){//constructeur
        this.nomPlanning = nom;
        this.debutPlanning = deb;
        this.finPlanning = fin;
@@ -34,30 +39,30 @@ public class Planning {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
-   public Boolean verifierCreneaux() {
+   public Boolean verifierCreneaux() {//vérification de la disponibilité des créneaux
       // TODO: implement
       return null;
    }
    
-   public Date getListeCreneaux() {
+   public Date getListeCreneaux() {//récupérer les créneaux
       // TODO: implement
       return null;
    }
    
-   public void ajouterProjection(Projection proj) {
+   public void ajouterProjection(Projection proj) {//ajouter une projection
        lp.add(proj);
    }
    
-   public Planning getPlanning(String nomPlanning) {
+   public Planning getPlanning(String nomPlanning) {//récupérer planning
       // TODO: implement
       return null;
    }
    
-   public void retirerProjection(int idProjection) {
+   public void retirerProjection(int idProjection) {//retirer une projection
       // TODO: implement
    }
    
-   public int getNbFilmJournalier() {
+   public int getNbFilmJournalier() {//récupérer nombre de films journalier
       // TODO: implement
       return 0;
    }

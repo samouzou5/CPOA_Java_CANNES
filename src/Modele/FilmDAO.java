@@ -24,7 +24,7 @@ import javax.sql.DataSource;
 public class FilmDAO {
 
     private static DataSourceDAO ds;
-    public ArrayList<Film> listeFilm = new ArrayList<Film>();
+    public ArrayList<Film> listeFilm = new ArrayList<Film>();//conteneur pour stocker les films
 
     public FilmDAO() {
     }
@@ -34,15 +34,15 @@ public class FilmDAO {
         ResultSet rset = null, rset1 = null;
         Statement stmt = null;
         try {
-            connexionBD = ds.getConnection("connexion.properties");
+            connexionBD = ds.getConnection("connexion.properties");//connexion a la base de données
             stmt = connexionBD.createStatement();
-            rset = stmt.executeQuery("select * from Film");
-            while (rset.next()) {
-                int a = rset.getInt(2);
+            rset = stmt.executeQuery("select * from Film");//utilisation d'un ResultSet pour exécuter la requête
+            while (rset.next()) {//parcours du curseur
+                int a = rset.getInt(2);//récupération de l'id catégorie
                 String req = "select nomCategorie from Categorie where idCategorie = " + a + "";
                 rset1 = stmt.executeQuery(req);
                 if (rset1.next()) {
-                    Film film = new Film(rset.getString(1), rset1.getString(1), rset.getString(4), rset.getString(5), rset.getInt(6));
+                    Film film = new Film(rset.getString(1), rset1.getString(1), rset.getString(4), rset.getString(5), rset.getInt(6));//création d'un objet film
                     listeFilm.add(film);
                 }
             }
@@ -59,7 +59,7 @@ public class FilmDAO {
         connexionBD = ds.getConnection("connexion.properties");
         stmt = connexionBD.createStatement();
         PreparedStatement pst = connexionBD.prepareStatement("UPDATE Film set " + colonne + " = ? where nomFilm = ?");
-        switch (colonne) {
+        switch (colonne) {//les cas possibles : modifier le nom du film, sa durée, son statut
             case "nomFilm":
                 pst.setString(1, value);
                 pst.setString(2, name);
@@ -74,7 +74,7 @@ public class FilmDAO {
                 pst.setString(2, name);
 
         }
-        int nb_ligne = pst.executeUpdate();
+        int nb_ligne = pst.executeUpdate();//nombre de lignes modifiées
         return nb_ligne;
 
     }
@@ -88,29 +88,29 @@ public class FilmDAO {
         try {
             connexionBD = ds.getConnection("connexion.properties");
             stmt = connexionBD.createStatement();
-            PreparedStatement pst = connexionBD.prepareStatement("SELECT idCategorie as cat from Categorie where nomCategorie=?");
+            PreparedStatement pst = connexionBD.prepareStatement("SELECT idCategorie as cat from Categorie where nomCategorie=?");//récupération de l'id catégorie
             pst.setString(1, categorie);
             rset = pst.executeQuery();
-            while (rset.next()) {
+            while (rset.next()) {//parcours curseur
                 s = rset.getString("cat");
             }
-            System.out.println(s);
-            PreparedStatement pst1 = connexionBD.prepareStatement("SELECT idJury as jur from Jury where nomJury=?");
+            PreparedStatement pst1 = connexionBD.prepareStatement("SELECT idJury as jur from Jury where nomJury=?");//récupération de l'id jury
             pst1.setString(1, jury);
             rset = pst1.executeQuery();
             while (rset.next()) {
-                s1 = rset.getString("jur");
+                s1 = rset.getString("jur");//récupération de l'id jury
             }
             String req = "INSERT INTO Film (idCategorie,idJury,nomFilm,statusFilm,dureeFilm) VALUES(?,?,?,?,?)";
-            PreparedStatement pst2 = connexionBD.prepareStatement(req);
+            PreparedStatement pst2 = connexionBD.prepareStatement(req);//requête paramètrée
             int as = Integer.parseInt(s);
             int as1 = Integer.parseInt(s1);
+            //saisie des paramètres
             pst2.setInt(1, as);
             pst2.setInt(2, as1);
             pst2.setString(3, nom);
             pst2.setString(4, statut);
             pst2.setInt(5, duree);
-            b1 = pst2.executeUpdate();
+            b1 = pst2.executeUpdate();//exécution de la requête
         } catch (Exception e) {
             System.err.println("Problème: " + e.getMessage());
         }
@@ -121,7 +121,7 @@ public class FilmDAO {
         FilmDAO.ds = (DataSourceDAO) ds;
     }
 
-    public Connection getConnection() throws SQLException, IOException, ClassNotFoundException {
+    public Connection getConnection() throws SQLException, IOException, ClassNotFoundException {//recupérer connexion
         return (ds.getConnection("connexion.properties"));
     }
 

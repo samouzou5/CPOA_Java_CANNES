@@ -20,7 +20,12 @@ public class Film {
    private int dureeFilm;
    
    private static int id=1;
-   
+  /**
+   * 
+   * @param titre //titre du film
+   * @param status //staut du film (en compétition, hors catégorie...)
+   * @param duree //durée du film en minutes
+   */ 
    public Film(String titre, String status, int duree){
        this.nomFilm = titre;
        this.statusFilm = status;
@@ -28,7 +33,14 @@ public class Film {
        this.idFilm = 'F'+Integer.toString(id);
        id++;
    }
-   
+   /**
+    * 
+    * @param id //id du film
+    * @param cat//catégorie du film
+    * @param nom//nom du film
+    * @param status//statut du film
+    * @param duree //durée du film
+    */
    public Film(String id, String cat, String nom, String status, int duree){
        this.categorieFilm=cat;
        this.dureeFilm=duree;
@@ -41,26 +53,26 @@ public class Film {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
-   public String getIdFilm() {
+   public String getIdFilm() {//récupérer id du film
       String r = this.idFilm; 
       return r;
    }
-   public String getNomFilm(){
+   public String getNomFilm(){//récupérer le nom du film
        return nomFilm;
    }
    
-   public void setNomFilm(String newNom) {
+   public void setNomFilm(String newNom) {//mettre à jour le nom du film
       this.nomFilm = newNom;
    }
    
-   public void setDureeFilm(int newDuree) {
+   public void setDureeFilm(int newDuree) {//mettre à jour la durée du film
        if (newDuree > 0){
            this.dureeFilm = newDuree;
        }
        
    }
    
-   public String getCatFilm() {
+   public String getCatFilm() {//récupérer la catégorie du film
       return this.categorieFilm;
    }
 

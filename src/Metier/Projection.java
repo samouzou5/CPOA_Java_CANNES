@@ -27,8 +27,16 @@ public class Projection implements Comparable{
    
    private static int id=0;
    
-   
-   public Projection(String nom,String dateProj,String heureD,String heureF, String f, String s) {
+   /**
+    * 
+    * @param nom//nom projection
+    * @param dateProj//date de la projection
+    * @param heureD//heure de début de laprojection
+    * @param heureF//heure de fin de la projection
+    * @param f//film associé
+    * @param s //salle associée
+    */
+   public Projection(String nom,String dateProj,String heureD,String heureF, String f, String s) {//constructeur
        this.nomProjection=nom;
        this.dateProjection=dateProj;
        this.heureDebut=heureD;
@@ -44,29 +52,25 @@ public class Projection implements Comparable{
     }
    
    
-  
-   public ArrayList<Projection> getProjectionPlanning(int idPlanning) {
-      return null;
-   }
+
    
-   
-   public String getIdProjection() {
+   public String getIdProjection() {//récuperer l'id de la projection
        return idProjection;
        
    }
-   public String getNomProj(){
+   public String getNomProj(){//récupérer le nom d'une projection
        return nomProjection;
    }
    
-   public String getHeureDeb(){
+   public String getHeureDeb(){//récupérer l'heure de début
        return heureDebut;
    }
-   public String getHeureFin(){
+   public String getHeureFin(){//récupérer l'heure de fin
        return heureFin;
    }
 
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(Object o) {//méthode de comparaison des objets
         if (o.getClass()!=this.getClass()){
             return -1;
         }

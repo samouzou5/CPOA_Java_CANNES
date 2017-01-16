@@ -29,14 +29,14 @@ public class ListeProjection extends javax.swing.JFrame {
     /**
      * Creates new form ListeProjection
      */
-    public ListeProjection(String date) throws IOException, ClassNotFoundException, SQLException {
+    public ListeProjection(String date) throws IOException, ClassNotFoundException, SQLException {//constructeur
         initComponents();
         this.date = date;
-        setTitle("Liste des projections");
-        ProjectionDAO pd1 = new ProjectionDAO();
+        setTitle("Liste des projections");//titre
+        ProjectionDAO pd1 = new ProjectionDAO();//objet ProjectionDAO
         ArrayList<Projection> ap = pd1.getObjetsProjection(date);//recuperation des projections pour une date donnée
-        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
-        dm.setRowCount(ap.size());
+        DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();//modèle pour le jTable
+        dm.setRowCount(ap.size());//nombre de lignes du jtable au départ
         Object[] rowData = new Object[5];//ligne de données
         for (int i = 0; i < ap.size(); i++) {//affichage de la liste des projections avec les attributs
             rowData[0]= ap.get(i).getIdProjection();
@@ -167,7 +167,7 @@ public class ListeProjection extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
-                    new ListeProjection(null).setVisible(true);
+                    new ListeProjection(null).setVisible(true);// lancement de la fenêtre avec try catch pour gérer erreurs
                 } catch (IOException ex) {
                     Logger.getLogger(ListeProjection.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ClassNotFoundException ex) {

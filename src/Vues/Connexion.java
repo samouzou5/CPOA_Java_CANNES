@@ -10,7 +10,7 @@ package Vues;
  * @author Madanael
  */
 
-
+//imports à faire
 import Metier.Utilisateur;
 import Modele.DataSourceDAO;
 import Modele.UtilisateurDAO;
@@ -27,17 +27,17 @@ import javax.activation.DataSource;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Connexion extends javax.swing.JFrame {
+public class Connexion extends javax.swing.JFrame {//fenêtre de connexion
 
     /**
      * Creates new form NewJFrame
      */
    
     
-    public Connexion() {
+    public Connexion() {//constructeur
         initComponents();
         jl_message.setVisible(false);//message d'erreur non visible au départ
-        setTitle("Fenêtre de connexion");
+        setTitle("Fenêtre de connexion");//titre fenêtre
     }
 
     /**
@@ -153,7 +153,7 @@ public class Connexion extends javax.swing.JFrame {
         String mdp = pwf.getText();//récupération du mot de passe
         UtilisateurDAO ou =new UtilisateurDAO();//objet DAO pour vérifier la connexion
         int a = ou.verifConnexion(log, mdp);
-        if(a==0){//si mot de passe ou login erronéaffichage du message d'erreur
+        if(a==0){//si mot de passe ou login erroné, affichage du message d'erreur
             JLabel j = new JLabel();
                jl_message.setVisible(true);
         }else{//sinon connexion

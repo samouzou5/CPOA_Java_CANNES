@@ -28,7 +28,7 @@ public class ConfigConnection {
      * @throws java.sql.SQLException : erreur
      */
     public static Connection getConnection(String nomFichierProp)
-            throws IOException, ClassNotFoundException, SQLException {
+            throws IOException, ClassNotFoundException, SQLException {//récupérer la connexion
         Properties props = new Properties();
         URL urlFichierProp = ConfigConnection.class.getResource(nomFichierProp);
         BufferedInputStream bis = null;

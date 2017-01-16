@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Vues;
-
+//imports à faire
 import Metier.Planning;
 import Modele.FilmDAO;
 import java.sql.SQLException;
@@ -23,7 +23,7 @@ public class AjoutFilm extends javax.swing.JFrame {
      */
     public AjoutFilm() {
         initComponents();//initialisation de la fenêtre
-        setTitle("Ajouter un film");
+        setTitle("Ajouter un film");//titre
     }
 
     /**
@@ -162,12 +162,12 @@ public class AjoutFilm extends javax.swing.JFrame {
         int o = 0;
         int dur1=Integer.parseInt(dur);
         try {
-            o=fd.ajout_film(cat1,n_j,nom,st,dur1);//methode d'ajout d'un film
+            o=fd.ajout_film(cat1,n_j,nom,st,dur1);//méthode d'ajout d'un film
         } catch (SQLException ex) {
-            Logger.getLogger(AjoutFilm.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AjoutFilm.class.getName()).log(Level.SEVERE, null, ex);//cas d'erreur
         }
         if(o==1){//si 1 on affiche une confirmation
-        JOptionPane.showMessageDialog(null, "Film ajouté");
+        JOptionPane.showMessageDialog(null, "Film ajouté");//affiche d'une fenêtre d'information
         setVisible(false);
         PlanningFestival pf=new PlanningFestival();
         pf.setVisible(true);
@@ -209,7 +209,7 @@ public class AjoutFilm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AjoutFilm().setVisible(true);
+                new AjoutFilm().setVisible(true);//nouvelle fenêtre d'ajout de film
             }
         });
     }

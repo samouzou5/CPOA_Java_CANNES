@@ -19,8 +19,13 @@ public class Salle {
    private String typeFilm;
    
    private static int id;
-   
-   public Salle(String nom, String type, int places){
+   /**
+    * 
+    * @param nom //nom de la salle
+    * @param type //type de film projeté
+    * @param places //nombre de places
+    */
+   public Salle(String nom, String type, int places){//constructeur
        this.nomSalle = nom;
        this.nbPlacesSalle = places;
        this.typeFilm = type;
