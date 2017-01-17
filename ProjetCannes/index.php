@@ -12,6 +12,7 @@
 	$vp=new VipManager();
 	$dm=new DemandeManager();
 	$am1=new ActionManager();
+	/*
 	if(isset($_POST["valid1"])){
 		$result=$dm->insert_demande($_POST["f"],$_POST["demande"],$_POST["deb"],$_POST["date_fin"]);
 		$result=$dm->Demande();
@@ -23,19 +24,12 @@
 		$result=$dm->Demande();
 		require("Views/demandes.php");
 	}
-	
+	*/
 	if(isset($_GET["action"])){
-		if($_GET["action"]=="update_action"){
-			$result1=$am1->UpdateAction($_POST["intitule_act"],$_POST["statut_act"],$_POST["date_act"],$_POST["id"]);
-			$result=$am1->Actions();
-			require("Views/actions.php");
-		}
-		if(isset($_GET["idaction"])&& $_GET["action"]=="traiter"){
-			require("Views/action_vip.php");
-		}
+		
 		if(isset($_GET["idvip"])&& $_GET["action"]=="demander"){
 				$result4=$vp->getInfoVip1($_GET["idvip"]);
-				require("Views/creation_demande_vip.php");
+				require("Views/creation_demande.php");
 			}
 		if(isset($_GET["idvip"])&& $_GET["action"]=="echange"){
 				$result4=$vp->getInfoVip1($_GET["idvip"]);
@@ -44,7 +38,8 @@
 		if($_GET["action"]=="verification"){
 			$res=$am->getInfoAdmin($_POST["login"],$_POST["mdp"]);
 			if($res==0){
-				require("Views/connexion_erreur.php");
+				$nope=1;
+				require("Views/connexion_gest_vip.php");
 			}else{
 				$_SESSION ["login"] = $_POST["login"];
 				$newvip=$vp->newVip();
@@ -84,6 +79,10 @@
 			$result=$dm->Demande();
 			require("Views/demandes.php");
 		}
+		if($_GET["action"]=="agir"){
+			$info = $dm->getInfoDemande($_GET["idDemande"]);
+			require("Views/creation_action.php");
+		}
 		if($_GET["action"]=="recherche_demande"){
 			$result=$dm->rechercheDemande($_POST["search1"]);
 			require("Views/demandes.php");
@@ -93,7 +92,12 @@
 			require("Views/creation_demande.php");
 		}
 		if($_GET["action"]=="actions"){
-			$result=$am1->Actions();
+			if (isset($_GET["idDemande"])){
+				$result=$am1->ActionsDemande($_GET["idDemande"]);
+			}
+			else{
+				$result=$am1->Actions();
+			}
 			require("Views/actions.php");
 		}
 		if($_GET["action"]=="Supprimer"){
@@ -117,6 +121,28 @@
 			$result=$em->echange($_GET["idvip"]);
             require("Views/profil_vip.php");
         }
+		if($_GET["action"]=="insertion_demande"){
+			if ($_POST["date2"]<$_POST["date1"]){
+				$result1=$vp->allVip();
+				$nope=1;
+				require("Views/creation_demande.php");
+			}else{
+				$dm->insert_demande($_POST["idvip"],$_POST["demande"],$_POST["date1"],$_POST["date2"]);
+				$result=$dm->Demande();
+				require("Views/demandes.php");
+			}
+		}
+		if ($_GET["action"]=="majAction"){
+			$am1->UpdateAction($_POST["statut"],$_POST["idAction"]);
+			$result=$am1->Actions();
+			require("Views/actions.php");
+		}
+		if ($_GET["action"]=="creation_action"){
+			$am1->AjouterAction($_POST["idDemande"],$_POST["nomA"],$_POST["statutA"],$_POST["dateA"]);
+			$result=$am1->Actions();
+			require("Views/actions.php");
+		}
+		
 	}else{
 		if(isset($_GET["idvip"])){
 			$res2=$vp->getInfoVip($_GET["idvip"]);
@@ -128,11 +154,6 @@
 	else
 	{require("Views/connexion_gest_vip.php");}
 	}
-	
-	
-	
-	
-	
 	
 ?>
 

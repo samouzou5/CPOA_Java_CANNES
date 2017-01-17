@@ -11,7 +11,8 @@
 				echo '<td>'.$line['nomVip'].'&nbsp'.$line['penomVip'].'</td>';
 				echo '<td>'.$line['deadLine'].'</td>';
 				echo '<td>Oui</td>';
-				echo '<td><a href="index.php?action=demandes">Mettre à jour action</a></td>';
+				echo '<td><a href=index.php?action=agir&idDemande='.$line["idDemande"].'>Créer une action</a><br>
+							<a href=index.php?action=actions&idDemande='.$line["idDemande"].'>Voir actions en lien </a> </td>';
 			}
 			echo '</table>';
 	$contenu=ob_get_clean();

@@ -16,7 +16,7 @@ class VipManager extends Model{
 		return $result;
 	}
 	public function getInfoVip1($idVip){
-		$requete = 'Select nomVip,penomVip from Vip where idVip=?';
+		$requete = 'Select idVip,nomVip,penomVip from Vip where idVip=?';
 		$vip = $this->executerRequete($requete,array($idVip));
 		$result = $vip->fetchAll(PDO::FETCH_ASSOC);
 		$vip->closeCursor();

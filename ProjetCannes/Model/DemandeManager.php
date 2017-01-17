@@ -1,8 +1,9 @@
 <?php
 class DemandeManager extends Model{
+	
 	public function Demande(){
 		
-		$requete = 'Select nomVip, penomVip, requete, deadLine from Vip v, Demande d where v.idVip=d.idVip';
+		$requete = 'Select v.idVip, idDemande, nomVip, penomVip, requete, deadLine from Vip v, Demande d where v.idVip=d.idVip';
 		$vip = $this->executerRequete($requete);
 		$result = $vip->fetchAll(PDO::FETCH_ASSOC);
 		$vip->closeCursor();
@@ -13,7 +14,7 @@ class DemandeManager extends Model{
 		$this->executerRequete($requete,array("",$idvip,$dem,$date_deb,$deadline));
 	}
 	public function rechercheDemande($string){
-		$requete= 'Select nomVip, penomVip, requete, deadLine from Vip v, Demande d where v.idVip=d.idVip and requete like ?';
+		$requete= 'Select v.idVip, idDemande, nomVip, penomVip, requete, deadLine from Vip v, Demande d where v.idVip=d.idVip and requete like ?';
 		$vip = $this->executerRequete($requete,array('%'.$string.'%'));
 		$result = $vip->fetchAll();
 		$vip->closeCursor();
@@ -30,6 +31,13 @@ class DemandeManager extends Model{
 		$requete='Select requete,dateDebut,deadLine from Demande where idVip=?';
 		$vip=$this->executerRequete($requete,array($idVip));
 		$result = $vip->fetchAll(PDO::FETCH_ASSOC);
+		return $result;
+	}
+	
+	public function getInfoDemande($idDemande){
+		$requete = 'Select Demande.idVip, idDemande, requete, deadLine, penomVip, nomVip from Demande, Vip where idDemande=? and Demande.idVip=Vip.idVip';
+		$demande = $this->executerRequete($requete,array($idDemande));
+		$result = $demande->fetch(PDO::FETCH_ASSOC);
 		return $result;
 	}
 }

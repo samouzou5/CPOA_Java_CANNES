@@ -17,8 +17,8 @@
 	echo '</table></aside>';
 	
 	echo '<p>';
-	echo '<section class="gauche1">Communications récentes';
-	echo '<table> <tr><th colspan=3><h2>Communication récentes</h2><th></tr>';
+	echo '<section class="gauche1">';
+	echo '<table> <tr><th colspan=4><h2>Communication récentes</h2></th></tr>';
 	foreach($newEch as $row){
 		echo '<tr> <td>'.$row["penomVip"].' '.$row["nomVip"].'</td><td>'.$row["intitule"].'</td><td>'.$row["contenu"].'</td><td>'.$row["dateEchange"].'</td></tr>';
 	}

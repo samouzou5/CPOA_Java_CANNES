@@ -1563,3 +1563,99 @@ Stack trace:
 [09-Jan-2017 11:53:19 Europe/Paris] PHP Parse error:  syntax error, unexpected 'foreach' (T_FOREACH), expecting ',' or ';' in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/accueil.php on line 22
 [09-Jan-2017 11:55:54 Europe/Paris] PHP Notice:  Undefined index: idVip in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/echange.php on line 17
 [09-Jan-2017 11:58:09 Europe/Paris] PHP Notice:  Use of undefined constant result - assumed 'result' in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/profil_vip.php on line 31
+[10-Jan-2017 10:14:18 Europe/Paris] PHP Notice:  Undefined index: cache in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 22
+[10-Jan-2017 10:14:18 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'idVip' cannot be null' in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php:14
+Stack trace:
+#0 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php(14): PDOStatement->execute(Array)
+#1 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/DemandeManager.php(13): Model->executerRequete('Insert into Dem...', Array)
+#2 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php(22): DemandeManager->insert_demande(NULL, 'Faire la vaisse...', '', '')
+#3 {main}
+  thrown in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php on line 14
+[10-Jan-2017 10:15:23 Europe/Paris] PHP Notice:  Undefined index: cache in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 22
+[10-Jan-2017 10:15:23 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'idVip' cannot be null' in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php:14
+Stack trace:
+#0 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php(14): PDOStatement->execute(Array)
+#1 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/DemandeManager.php(13): Model->executerRequete('Insert into Dem...', Array)
+#2 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php(22): DemandeManager->insert_demande(NULL, 'Faire la vaisse...', '10/01/2016', '15/01/2016')
+#3 {main}
+  thrown in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php on line 14
+[10-Jan-2017 10:16:43 Europe/Paris] PHP Notice:  Undefined index: cache in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 22
+[10-Jan-2017 10:16:43 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'idVip' cannot be null' in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php:14
+Stack trace:
+#0 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php(14): PDOStatement->execute(Array)
+#1 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/DemandeManager.php(13): Model->executerRequete('Insert into Dem...', Array)
+#2 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php(22): DemandeManager->insert_demande(NULL, 'gfdz', '2017-01-10', '2017-02-17')
+#3 {main}
+  thrown in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php on line 14
+[10-Jan-2017 10:46:42 Europe/Paris] PHP Notice:  Use of undefined constant vrai - assumed 'vrai' in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 123
+[10-Jan-2017 11:04:02 Europe/Paris] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/creation_demande.php on line 13
+[10-Jan-2017 11:35:08 Europe/Paris] PHP Fatal error:  Call to undefined method AdminManager::UpdateAction() in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 126
+[10-Jan-2017 11:35:10 Europe/Paris] PHP Fatal error:  Call to undefined method AdminManager::UpdateAction() in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 126
+[10-Jan-2017 12:06:58 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'idVip' in field list is ambiguous' in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php:10
+Stack trace:
+#0 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php(10): PDO->query('Select idVip, n...')
+#1 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/DemandeManager.php(7): Model->executerRequete('Select idVip, n...')
+#2 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php(78): DemandeManager->Demande()
+#3 {main}
+  thrown in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php on line 10
+[10-Jan-2017 12:09:37 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Vip.idVip' in 'field list'' in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php:10
+Stack trace:
+#0 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php(10): PDO->query('Select Vip.idVi...')
+#1 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/DemandeManager.php(7): Model->executerRequete('Select Vip.idVi...')
+#2 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php(78): DemandeManager->Demande()
+#3 {main}
+  thrown in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php on line 10
+[10-Jan-2017 12:10:10 Europe/Paris] PHP Notice:  Undefined variable: ligne in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 14
+[10-Jan-2017 12:10:10 Europe/Paris] PHP Notice:  Undefined variable: ligne in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 15
+[10-Jan-2017 12:10:10 Europe/Paris] PHP Notice:  Undefined variable: ligne in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 14
+[10-Jan-2017 12:10:10 Europe/Paris] PHP Notice:  Undefined variable: ligne in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 15
+[10-Jan-2017 12:10:10 Europe/Paris] PHP Notice:  Undefined variable: ligne in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 14
+[10-Jan-2017 12:10:10 Europe/Paris] PHP Notice:  Undefined variable: ligne in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 15
+[10-Jan-2017 12:10:10 Europe/Paris] PHP Notice:  Undefined variable: ligne in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 14
+[10-Jan-2017 12:10:10 Europe/Paris] PHP Notice:  Undefined variable: ligne in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 15
+[10-Jan-2017 12:10:10 Europe/Paris] PHP Notice:  Undefined variable: ligne in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 14
+[10-Jan-2017 12:10:10 Europe/Paris] PHP Notice:  Undefined variable: ligne in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 15
+[10-Jan-2017 12:41:54 Europe/Paris] PHP Parse error:  syntax error, unexpected '{' in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 91
+[10-Jan-2017 12:42:18 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:42:18 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'idVip' in field list is ambiguous' in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php:14
+Stack trace:
+#0 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php(14): PDOStatement->execute(Array)
+#1 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/DemandeManager.php(39): Model->executerRequete('Select idVip, i...', Array)
+#2 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php(79): DemandeManager->getInfoDemande(NULL)
+#3 {main}
+  thrown in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php on line 14
+[10-Jan-2017 12:42:55 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:42:55 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'idVip' in field list is ambiguous' in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php:14
+Stack trace:
+#0 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php(14): PDOStatement->execute(Array)
+#1 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/DemandeManager.php(39): Model->executerRequete('Select idVip, i...', Array)
+#2 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php(79): DemandeManager->getInfoDemande(NULL)
+#3 {main}
+  thrown in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php on line 14
+[10-Jan-2017 12:43:15 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:43:15 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'idVip' in field list is ambiguous' in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php:14
+Stack trace:
+#0 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php(14): PDOStatement->execute(Array)
+#1 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/DemandeManager.php(39): Model->executerRequete('Select idVip, i...', Array)
+#2 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php(79): DemandeManager->getInfoDemande(NULL)
+#3 {main}
+  thrown in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php on line 14
+[10-Jan-2017 12:44:44 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:47:26 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:47:46 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:47:51 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:48:36 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:50:43 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:50:45 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:50:48 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:50:50 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:50:52 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:51:00 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 12:51:07 Europe/Paris] PHP Notice:  Undefined index: idDemande in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php on line 79
+[10-Jan-2017 13:00:02 Europe/Paris] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Action.idDemande' in 'where clause'' in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php:14
+Stack trace:
+#0 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php(14): PDOStatement->execute(Array)
+#1 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/ActionManager.php(17): Model->executerRequete('Select idAction...', Array)
+#2 /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/index.php(96): ActionManager->ActionsDemande('5')
+#3 {main}
+  thrown in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Model/Model.php on line 14
