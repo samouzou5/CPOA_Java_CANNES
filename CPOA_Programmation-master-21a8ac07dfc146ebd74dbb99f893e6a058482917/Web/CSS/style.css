@@ -1,0 +1,155 @@
+ul.formulaire li {
+display:block;
+width : 33%;
+height : 90px;
+margin:auto;
+
+}
+
+fieldset { 
+	width:50%;
+	background-color:white;
+    display: block;
+    margin:auto;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px solid;
+	border-radius:0.5em;
+	
+}
+#creation button{
+	text-decoration: none;
+	float:left;
+}
+ul.formulaire li input{
+	height:25px;
+}
+ul.formulaire li input[type=submit]{
+	height:50%;
+	width:60%;
+}
+body{
+	background-color:white;
+	font-family:Calibri;
+	margin-bottom:250px;
+}
+header a:hover{
+	border-radius: 0.25em;
+	padding: 0.25em;
+	background-color: orange;
+	color: black;
+}
+header{
+	border: 2px solid orange;
+	border-radius: 0.5em;
+	text-align: center;
+	background-color:black;
+	color:white;
+	height:80%;
+	margin:auto;
+	
+}
+header nav ul li{
+	display:inline-block;
+	margin-left:20px;
+	font-weight:bold;
+	font-size:16pt;
+}
+
+
+
+
+#VIP,#VIP li{
+	margin: 0;
+  padding: 0;
+  list-style: none;
+  
+  /* float permet à l'élément de prendre la largeur de son contenu */
+  float: left;
+  position: relative;
+ }
+#VIP{
+  /* on décale le menu vers la droite de la moitié de la largeur disponible */
+  left: 50%;
+}
+#VIP li {
+  right: 50%;
+}
+
+ 
+aside{
+	float:right;
+	height:622px;
+	width:40%;
+	border:1px solid;
+}
+.gauche{
+	text-align:left;
+	float:left;
+	border:1px solid;
+	height:270px;
+	width:50%;
+}
+.gauche1{
+	margin-top:80px;
+	text-align:left;
+	float:left;
+	border:1px solid;
+	width:50%;
+	height:270px;
+}
+ 
+ul.formulaire1 li {
+display:block;
+width : 33%;
+height : 90px;
+
+}
+ul.formulaire1 li input{
+	height:25px;
+}
+input[type="textarea"]{
+	height:150%;
+}
+ 
+#fin li{
+	display:block;
+	margin:0;
+}
+input[type=radio]{
+ margin:0;
+ vertical-align:middle;
+}
+ #part1{
+	 width:50%;
+	 display:inline-block;
+ }
+ 
+ #part2{
+	 width:50%;
+	 display:inline-block;
+ }
+ table {
+	border: medium solid #6495ed;
+	border-collapse: collapse;
+	margin: auto;
+ }
+th {
+	font-family: monospace;
+	border: thin solid #6495ed;
+	padding: 5px;
+	background-color: #D0E3FA;
+	
+ }
+td {
+	font-family: sans-serif;
+	border: thin solid #6495ed;
+	padding: 5px;
+	text-align: center;
+	background-color: #ffffff;
+ }
+caption {
+font-family: sans-serif;
+	}

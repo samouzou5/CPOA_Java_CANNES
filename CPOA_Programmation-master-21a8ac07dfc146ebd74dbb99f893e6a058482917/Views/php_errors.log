@@ -1,0 +1,8 @@
+[20-Dec-2016 20:20:18 Europe/Paris] PHP Warning:  require(Views/header.php): failed to open stream: No such file or directory in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/creation_demande.php on line 7
+[20-Dec-2016 20:20:18 Europe/Paris] PHP Fatal error:  require(): Failed opening required 'Views/header.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/creation_demande.php on line 7
+[20-Dec-2016 20:23:44 Europe/Paris] PHP Warning:  require(Views/header.php): failed to open stream: No such file or directory in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/creation_demande.php on line 7
+[20-Dec-2016 20:23:44 Europe/Paris] PHP Fatal error:  require(): Failed opening required 'Views/header.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/creation_demande.php on line 7
+[20-Dec-2016 23:37:06 Europe/Paris] PHP Notice:  Undefined variable: result in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 6
+[20-Dec-2016 23:37:06 Europe/Paris] PHP Warning:  Invalid argument supplied for foreach() in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 6
+[20-Dec-2016 23:37:06 Europe/Paris] PHP Warning:  require(Views/header.php): failed to open stream: No such file or directory in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 16
+[20-Dec-2016 23:37:06 Europe/Paris] PHP Fatal error:  require(): Failed opening required 'Views/header.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/UNIV-LYON1/p1506175/public_html/ProjetCannes/Views/demandes.php on line 16

@@ -207,6 +207,9 @@ public class ModificationProjection extends javax.swing.JFrame {
         if(e > 0){//si modification ok alors afficher la modification s'est effectuée correctement
             JOptionPane jop = new JOptionPane();
             jop.showMessageDialog(null,"Modification effectuée","info",JOptionPane.INFORMATION_MESSAGE);
+            setVisible(false);
+            PlanningFestival pf = new PlanningFestival();// affichage de la fenêtre d'accueil
+            pf.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
