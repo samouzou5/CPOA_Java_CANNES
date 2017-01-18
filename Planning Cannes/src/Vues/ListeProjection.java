@@ -7,11 +7,15 @@ package Vues;
 
 import Metier.Projection;
 import Modele.ProjectionDAO;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,6 +37,53 @@ public class ListeProjection extends javax.swing.JFrame {
         initComponents();
         this.date = date;
         setTitle("Liste des projections");//titre
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowListener() {//ajout d'un listener en cas de fermeture de fenêtre pour que l'appli ne s'arrête pas 
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if(JOptionPane.showConfirmDialog(null, "Etes vous sûr ?") == JOptionPane.OK_OPTION){
+                    setVisible(false);
+                    dispose();
+                    PlanningFestival pf = new PlanningFestival();// affichage de la fenêtre d'accueil
+                    pf.setVisible(true);
+                }
+            }
+
+            @Override
+            public void windowOpened(WindowEvent e) {
+                
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+                
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+                
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+                
+            }
+
+            
+
+            
+            
+        });
         ProjectionDAO pd1 = new ProjectionDAO();//objet ProjectionDAO
         ArrayList<Projection> ap = pd1.getObjetsProjection(date);//recuperation des projections pour une date donnée
         DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();//modèle pour le jTable
